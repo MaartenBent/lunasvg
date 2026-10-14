@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "graphics.h"
 #include "lunasvg.h"
 
@@ -707,3 +709,5 @@ Canvas::Canvas(int x, int y, int width, int height)
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

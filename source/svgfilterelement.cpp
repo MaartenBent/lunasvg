@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgfilterelement.h"
 #include "svglayoutstate.h"
 #include "svgrenderstate.h"
@@ -1097,3 +1099,5 @@ void SVGFeSpecularLightingElement::apply(SVGFilterContext& context) const
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

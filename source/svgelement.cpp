@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgelement.h"
 #include "svgpaintelement.h"
 #include "svggeometryelement.h"
@@ -1334,3 +1336,5 @@ void SVGMaskElement::layoutElement(const SVGLayoutState& state)
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

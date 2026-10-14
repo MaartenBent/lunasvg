@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgrenderstate.h"
 #include "svgfilterelement.h"
 
@@ -65,3 +67,5 @@ void SVGRenderState::endGroup(const SVGBlendInfo& blendInfo)
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

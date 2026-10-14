@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgtextelement.h"
 #include "svglayoutstate.h"
 #include "svgrenderstate.h"
@@ -582,3 +584,5 @@ Rect SVGTextElement::boundingBox(bool includeStroke) const
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgproperty.h"
 #include "svgelement.h"
 #include "svgparserutils.h"
@@ -756,3 +758,5 @@ void SVGPreserveAspectRatio::transformRect(Rect& dstRect, Rect& srcRect) const
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

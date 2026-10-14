@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "lunasvg.h"
 #include "svgelement.h"
 #include "svgparserutils.h"
@@ -951,3 +953,5 @@ ElementList Document::querySelectorAll(const std::string& content) const
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

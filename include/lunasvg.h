@@ -23,11 +23,6 @@
 #ifndef LUNASVG_H
 #define LUNASVG_H
 
-
-#if !(__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
-    #error "C++17 or later is required for LunaSVG support."
-#endif
-
 #include <cstdint>
 #include <memory>
 #include <string>
@@ -144,6 +139,12 @@ LUNASVG_API bool lunasvg_add_font_face_from_data(const char* family, bool bold, 
 * @brief Destroy the font cache.
 */
 LUNASVG_API void lunasvg_destroy_font_cache();
+
+/**
+* @brief Check if LunaSVG is available, or if a dummy implementation is built.
+* @return `true` if available, `false` otherwise.
+*/
+LUNASVG_API bool lunasvg_is_available();
 
 #ifdef __cplusplus
 }

@@ -1,4 +1,7 @@
 #include "lunasvg.h"
+
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgelement.h"
 #include "svgrenderstate.h"
 
@@ -29,6 +32,11 @@ bool lunasvg_add_font_face_from_data(const char* family, bool bold, bool italic,
 void lunasvg_destroy_font_cache()
 {
     wxlunasvg::fontFaceCache()->destroy();
+}
+
+bool lunasvg_is_available()
+{
+    return true;
 }
 
 namespace wxlunasvg {
@@ -539,3 +547,68 @@ Document::Document() = default;
 Document::~Document() = default;
 
 } // namespace wxlunasvg
+
+#else
+
+#pragma message ("C++17 or later is required for LunaSVG support, building dummy implementation.")
+
+void lunasvg_destroy_font_cache()
+{
+}
+
+bool lunasvg_is_available()
+{
+    return false;
+}
+
+namespace wxlunasvg {
+
+Bitmap::~Bitmap() = default;
+
+uint8_t* Bitmap::data() const
+{
+    return nullptr;
+}
+
+int Bitmap::width() const
+{
+    return 0;
+}
+
+int Bitmap::height() const
+{
+    return 0;
+}
+
+int Bitmap::stride() const
+{
+    return 0;
+}
+
+class SVGRootElement { };
+
+Document::~Document() = default;
+
+std::unique_ptr<Document> Document::loadFromData(const char*)
+{
+    return nullptr;
+}
+
+float Document::width() const
+{
+    return 0;
+}
+
+float Document::height() const
+{
+    return 0;
+}
+
+Bitmap Document::renderToBitmap(int, int, uint32_t) const
+{
+    return Bitmap();
+}
+
+} // namespace wxlunasvg
+
+#endif // c++17

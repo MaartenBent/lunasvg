@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svgpaintelement.h"
 #include "svglayoutstate.h"
 #include "svgrenderstate.h"
@@ -362,3 +364,5 @@ SVGPatternAttributes SVGPatternElement::collectPatternAttributes() const
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17

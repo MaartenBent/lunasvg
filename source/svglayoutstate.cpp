@@ -1,3 +1,5 @@
+#if (__cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L))
+
 #include "svglayoutstate.h"
 #include "svgelement.h"
 #include "svgparserutils.h"
@@ -608,3 +610,5 @@ Font SVGLayoutState::font() const
 }
 
 } // namespace wxlunasvg
+
+#endif // c++17
